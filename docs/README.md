@@ -180,3 +180,20 @@ npm install --save-dev @babel/preset-env
 [更多配置可以参考这里](https://www.cnblogs.com/chyingp/p/understanding-babel-preset-env.html)
 
 
+## sass-loader 编译sass文件
+
+安装`sass-loader` 和 `node-sass`
+
+```
+npm install --save-dev sass-loader node-sass
+```
+
+配置webpack配置
+
+```
+module: {
+  rules: [
+    { test: /\.s[ac]ss$/, use: ['style-loader', 'css-loader', 'sass-loader']},
+  ]
+}
+```
