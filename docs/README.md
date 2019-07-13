@@ -146,3 +146,35 @@ module: {
 ```
 
 再次编译并刷新页面就看到编写的css已经应用到页面了。
+
+## 使用[babel-loader](https://babeljs.io/setup)处理不兼容的js语法
+
+```
+npm install --save-dev babel-loader @babel/core
+```
+
+并添加如下webpack配置规则
+
+```
+rules: [
+  { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+]
+```
+
+通过上面的配置并不能直接将es2015的代码转换成低版本浏览器支持的代码。
+
+### 安装 [@babel/preset-env](https://www.babeljs.cn/docs/babel-preset-env)
+
+```
+npm install --save-dev @babel/preset-env
+```
+
+添加babel配置文件 `.babelrc`
+
+```
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+[更多配置可以参考这里](https://www.cnblogs.com/chyingp/p/understanding-babel-preset-env.html)
