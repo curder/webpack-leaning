@@ -7,5 +7,14 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'), // 目标文件路径
         filename: 'index.js', // 目标文件名
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
     }
 }

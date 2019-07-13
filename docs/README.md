@@ -89,3 +89,60 @@ module.exports = {
 # 线上环境
 ./node_modules/.bin/webpack --mode=production
 ```
+
+
+## webpack处理css的打包编译
+
+### css-loader
+
+使用webpack，处理css文件时，需要安装 `css-loader` 并编写对应的规则。
+
+```
+npm install css-loader --save-dev
+```
+
+并在 webpack.config.js 中提供如下规则：
+
+```
+module: {
+  rules: [
+    {
+        test: /\.css$/,
+        use: 'css-loader'
+    }
+  ]
+}
+```
+
+通过上面的配置告诉webpack，当遇到`.css`后缀的配置文件，就使用 `css-loader` 拓展来处理。
+
+在`src`命令下编写我们的样式文件`index.css`
+
+```
+body {
+  background: #dbbfbf;
+}
+```
+
+使用命令`npm run watch`编译后并没有发现页面并未应用我们编写的css样式。这是因为`css-loader`将css打包到了JS文件中并没有应用到页面上，这里可以通过安装`style-loader`将其应用。
+
+
+### style-loader
+```
+npm install style-loader --save-dev
+```
+
+更新webpack.config.js配置文件，应用style-loader规则。
+
+```
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }
+  ]
+}
+```
+
+再次编译并刷新页面就看到编写的css已经应用到页面了。
