@@ -1,6 +1,9 @@
 let webpack = require('webpack');
 let path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将css提取到单独的文件
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // 将css文件压缩体积
+
+const inProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
     
@@ -31,9 +34,27 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),  
+        
     ],
 
     optimization: {
-        minimize: true
+        minimize: inProduction
     }
+}
+
+
+if(inProduction) {
+    module.exports.plugins.push(
+
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+              preset: ['default', { discardComments: { removeAll: true } }],
+              autoprefixer: true,
+            },
+            canPrint: true
+        })
+
+    );
 }

@@ -226,3 +226,15 @@ plugins: [
 ],
 ```
 具体插件的使用可以[参考这里](https://github.com/webpack-contrib/mini-css-extract-plugin#extracting-all-css-in-a-single-file)
+
+
+虽然完成上面的配置后可以提取出正确的样式，但是却不能通过环境变量NODE_ENV来控制生成的样式文件是否压缩，这对生产环境是不利的。
+
+### optimize-css-assets-webpack-plugin 压缩css文件
+
+[具体查看 NMFR/optimize-css-assets-webpack-plugin 的github地址](https://github.com/NMFR/optimize-css-assets-webpack-plugin#example)
+
+```
+npm install --save-dev optimize-css-assets-webpack-plugin
+```
+

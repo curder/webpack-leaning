@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "NODE_ENV=development ./node_modules/.bin/webpack --progress --hide-modules",
     "watch": "npm run dev -- --watch",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules"
+    "prod": "NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "css-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.35.3",
