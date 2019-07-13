@@ -1,9 +1,11 @@
-let webpack = require('webpack');
 let path = require('path');
+const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将css提取到单独的文件
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // 将css文件压缩体积
+const PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const inProduction = process.env.NODE_ENV === 'production';
+
 
 module.exports = {
     
@@ -55,7 +57,11 @@ if(inProduction) {
               autoprefixer: true,
             },
             canPrint: true
-        })
+        }),
+
+        new PurgecssPlugin({
+            paths: glob.sync(path.join(__dirname, 'index.html')),
+        }),
 
     );
 }

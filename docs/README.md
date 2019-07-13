@@ -244,7 +244,7 @@ npm install --save-dev optimize-css-assets-webpack-plugin
 npm install --save-dev file-loader
 ```
 
-修改webpack.config.js中对应图片loader处理的配置
+修改`webpack.config.js`中对应图片loader处理的配置
 
 ```
 module: {
@@ -255,4 +255,18 @@ module: {
 }
 ```
 
+## purgecss-webpack-plugin 优化未使用的css
 
+```
+npm install --save-dev purgecss-webpack-plugin
+```
+
+修改对应plugins中的配置
+
+```
+new PurgecssPlugin({
+    paths: glob.sync(path.join(__dirname, 'index.html')),
+}),
+```
+
+> 需要注意的是上面的路径据实际情况而定
