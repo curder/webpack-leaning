@@ -2,6 +2,9 @@ let webpack = require('webpack');
 let path = require('path');
 
 module.exports = {
+    
+    mode: process.env.NODE_ENV,
+
     entry: './src/index.js', // 入口文件
 
     output: {
@@ -14,5 +17,9 @@ module.exports = {
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
+    },
+
+    optimization: {
+        minimize: true
     }
 }

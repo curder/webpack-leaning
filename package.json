@@ -7,8 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "watch": "./node_modules/.bin/webpack --mode=development --watch",
-    "build": "./node_modules/.bin/webpack --mode=production"
+    "dev": "NODE_ENV=development ./node_modules/.bin/webpack --progress --hide-modules",
+    "watch": "npm run dev -- --watch",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --hide-modules"
   },
   "keywords": [],
   "author": "",
