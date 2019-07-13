@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "watch": "./node_modules/.bin/webpack --mode=development src/index.js -o dist/index.js --watch",
-    "build": "./node_modules/.bin/webpack --mode=production src/index.js -o dist/index.js"
+    "watch": "./node_modules/.bin/webpack --mode=development --watch",
+    "build": "./node_modules/.bin/webpack --mode=production"
   },
   "keywords": [],
   "author": "",

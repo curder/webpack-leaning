@@ -62,3 +62,30 @@ alert('src/index.js');
 },
 ```
 
+## 编写webpack配置文件
+
+webpack默认的配置文件放在项目的根目录下，与`package.json`文件保持一致，文件名`webpack.config.js`
+
+```
+let webpack = require('webpack');
+let path = require('path');
+
+module.exports = {
+    entry: './src/index.js', // 入口文件
+
+    output: {
+        path: path.resolve(__dirname, './dist'), // 目标文件路径
+        filename: 'index.js', // 目标文件名
+    }
+}
+```
+
+此刻我们就可以通过下面的命令来分别编译开发环境和线上环境的代码。
+
+```
+# 开发环境
+./node_modules/.bin/webpack --mode=development
+
+# 线上环境
+./node_modules/.bin/webpack --mode=production
+```
