@@ -1,0 +1,20 @@
+{
+  "name": "webpack-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "watch": "./node_modules/.bin/webpack --mode=development src/index.js -o dist/index.js --watch",
+    "build": "./node_modules/.bin/webpack --mode=production src/index.js -o dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  }
+}
