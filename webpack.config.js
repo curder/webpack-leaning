@@ -26,6 +26,7 @@ module.exports = {
         rules: [
             { test: /\.s[ac]ss$/, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']},
             { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
+            { test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/, loader: 'file-loader', options: {name: 'images/[name].[hash].[ext]'} },
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },

@@ -238,3 +238,21 @@ plugins: [
 npm install --save-dev optimize-css-assets-webpack-plugin
 ```
 
+## file-loader 加载图片资源
+
+```
+npm install --save-dev file-loader
+```
+
+修改webpack.config.js中对应图片loader处理的配置
+
+```
+module: {
+  rules: [
+    // ...
+    { test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/, loader: 'file-loader', options: {name: 'images/[name].[hash].[ext]'} },
+  ]
+}
+```
+
+

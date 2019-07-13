@@ -2,3 +2,7 @@
 body {
     background: #dbbfbf;
 }
+
+.test {
+    background: url('../images/stub.png');
+}
