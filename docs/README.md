@@ -197,3 +197,32 @@ module: {
   ]
 }
 ```
+
+## 提取css到单独的文件
+
+使用到webpack提供的[webpack-contrib/mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
+
+
+```
+npm install --save-dev mini-css-extract-plugin
+```
+
+并通过修改webpack配置达到提取css样式到独立文件的目的。
+
+```
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module: {
+    rules: [
+        { test: /\.s[ac]ss$/, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']},
+        { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
+    ]
+},
+
+plugins: [
+    new MiniCssExtractPlugin({
+        filename: '[name].css',
+    }),  
+],
+```
+具体插件的使用可以[参考这里](https://github.com/webpack-contrib/mini-css-extract-plugin#extracting-all-css-in-a-single-file)
